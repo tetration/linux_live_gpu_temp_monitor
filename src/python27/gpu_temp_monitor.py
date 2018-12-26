@@ -2,6 +2,8 @@
 import os 
 import subprocess
 import sys, select, time
+from subprocess import call
+
 def main():
 	Welcome()
 	select_gpu_manufacturer()
@@ -40,11 +42,11 @@ def NVIDIA_GPU_Monitoring():
 	while True:# Loop until user presses something
 		print("Real-time updated GPU temperature of your NVIDIA Card :")
 		GPUtemp= os.system("nvidia-settings -q gpucoretemp")
-		print("\r"+str(GPUtemp))
-		#os.system("clear")
+		#print("\r"+str(GPUtemp))
 		print("Press enter whenever you wish to stop monitoring your GPU temperature and exit this program")
-		sys.stdout.flush()
 		time.sleep(2)
+		os.system("clear")
+		sys.stdout.flush()
 		
 
 def AMD_GPU_Monitoring():
