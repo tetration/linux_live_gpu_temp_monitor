@@ -39,12 +39,13 @@ def select_gpu_manufacturer():
 def NVIDIA_GPU_Monitoring():
 	while True:# Loop until user presses something
 		print("Real-time updated GPU temperature of your NVIDIA Card :")
-		os.system("nvidia-settings -q gpucoretemp")
-		os.system("clear")
-		time.sleep(1)
+		GPUtemp= os.system("nvidia-settings -q gpucoretemp")
+		print("\r"+str(GPUtemp))
+		#os.system("clear")
 		print("Press enter whenever you wish to stop monitoring your GPU temperature and exit this program")
-		i,o,e = select.select([sys.stdin],[],[],0.0001)
-		if i == [sys.stdin]: break
+		sys.stdout.flush()
+		time.sleep(2)
+		
 
 def AMD_GPU_Monitoring():
 	print("Under development coming soon...")
